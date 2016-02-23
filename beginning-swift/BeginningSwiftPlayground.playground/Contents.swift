@@ -2,11 +2,11 @@
 import Cocoa
 
 struct Restaurant {
-    let name: String
+    var name: String
 }
 
 struct RestaurantBill {
-    let restaurant: Restaurant
+    var restaurant: Restaurant
     var totalBill: Double
     var rating: Int
     
@@ -29,12 +29,6 @@ struct RestaurantBill {
     
 }
 
-let chickenCafe = Restaurant(name: "Chicken Café")
-let chickenCafeBill = RestaurantBill(restaurant: chickenCafe, totalBill: 85, rating: 2)
-chickenCafeBill.calculateTip()
-
-let tacoTavern = Restaurant(name: "Taco Tavern")
-let tacoTavernBill = RestaurantBill(restaurant: tacoTavern, totalBill: 25, rating: 5)
-tacoTavernBill.calculateTip()
-
-tacoTavernBill.printAllTipOptions()
+var chickenCafe = Restaurant(name: "Chicken Café")
+var bill1 = RestaurantBill(restaurant: chickenCafe, totalBill: 85, rating: 2)
+var bill2 = RestaurantBill(restaurant: chickenCafe, totalBill: 30, rating: 4)
