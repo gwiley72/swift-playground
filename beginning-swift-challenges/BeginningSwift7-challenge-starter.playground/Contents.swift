@@ -38,7 +38,11 @@ The set, on the other hand, has a method `insert(_:)`. There's no order here –
 Let's say you go to **Ray's Ramen** again. Add the code below to both append to the array and insert into the set, then print out the counts.
 */
 // add code here!
+restaurantVisits.append("Ray's Ramen")
+restaurantsVisited.insert("Ray's Ramen")
 
+restaurantVisits.count
+restaurantsVisited.count
 /*:
 You'll see that since the array tracks _visits_, it now has a count of two.
 
@@ -65,7 +69,7 @@ OK, now what do you think the _count_ of the array and set will be? Figure it ou
 You can iterate through a set just as you'd expect:
 */
 for restaurantName in restaurantsVisited {
-
+    print("Restaurant name is \(restaurantName)")
 }
 /*:
 Add a `print()` call inside the for loop above to print out the names just to be sure.
@@ -74,6 +78,7 @@ Both arrays and sets also have a method `contains(_:)` to check whether a thing 
 */
 restaurantVisits.contains("Sam's Sandwiches")
 restaurantsVisited.contains("Sam's Sandwiches")
+restaurantVisits.contains("Ray's Ramen")
 
 /*:
 With so much similarity, you might wonder what the other differences are between sets and arrays.
