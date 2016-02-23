@@ -10,26 +10,17 @@ struct RestaurantBill {
     var totalBill: Double
     var rating: Int
     
-    func tipPercentage() -> Double? {
-        guard rating >= 1 && rating <= 5 else {
-            return nil
+    let tipPercentages: [Int: Double] = [5: 0.25, 4: 0.20, 3: 0.15, 2: 0.12, 1: 0.10]
+    
+    func printAllTipOptions() {
+        for (rating, tipPercentage) in tipPercentages {
+            let tip = totalBill * tipPercentage
+            print("Leave a $\(tip) tip for a \(rating)-star rating")
         }
-        
-        let tipPercentage: Double
-        
-        if rating == 5 {
-            tipPercentage = 0.25
-        } else if rating >= 3 {
-            tipPercentage = 0.15
-        } else {
-            tipPercentage = 0.10
-        }
-        
-        return tipPercentage
     }
     
     func calculateTip() -> Double {
-        guard let tipPercentage = tipPercentage() else {
+        guard let tipPercentage = tipPercentages[rating] else {
             return totalBill
         }
         
@@ -39,9 +30,11 @@ struct RestaurantBill {
 }
 
 let chickenCafe = Restaurant(name: "Chicken Café")
-let chickenCafeBill = RestaurantBill(restaurant: chickenCafe, totalBill: 85, rating: 5)
+let chickenCafeBill = RestaurantBill(restaurant: chickenCafe, totalBill: 85, rating: 2)
 chickenCafeBill.calculateTip()
 
 let tacoTavern = Restaurant(name: "Taco Tavern")
 let tacoTavernBill = RestaurantBill(restaurant: tacoTavern, totalBill: 25, rating: 5)
 tacoTavernBill.calculateTip()
+
+tacoTavernBill.printAllTipOptions()
