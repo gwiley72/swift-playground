@@ -1,7 +1,10 @@
-
 import Cocoa
 
-func tipPercentageForRating(rating: Int) -> Double {
+func tipPercentageForRating(rating: Int) -> Double? {
+    guard rating >= 1 && rating <= 5 else {
+        return nil
+    }
+    
     let tipPercentage: Double
     
     if rating == 5 {
@@ -15,29 +18,10 @@ func tipPercentageForRating(rating: Int) -> Double {
     return tipPercentage
 }
 
-func calculateTipOnTotal(totalBill: Double, withRating rating: Int) -> Double {
-    let tipPercentage = tipPercentageForRating(rating)
-    
-    return totalBill * tipPercentage
-}
-
-func showTipAdvice(restaurantTotal restaurantTotal: Double, rating: Int, restaurantName: String?) {
-    let tip = calculateTipOnTotal(restaurantTotal, withRating: rating)
-    
-    if let restaurantName = restaurantName {
-        print("You went out to eat at \(restaurantName)")
-    }
-
-    print("On a bill of $\(restaurantTotal), you should leave a tip of $\(tip)")
-    print("That means a total of $\(restaurantTotal + tip)")
-}
-
-var restaurantName: String?
-
-restaurantName = "Burger Barn"
-
-showTipAdvice(restaurantTotal: 65, rating: 5, restaurantName: restaurantName)
-
-
-
-
+//func calculateTipOnTotal(totalBill: Double, withRating rating: Int) -> Double {
+//    guard let tipPercentage = tipPercentageForRating(rating) else {
+//        return totalBill
+//    }
+//    
+//    return totalBill
+//}
