@@ -43,23 +43,5 @@ let chickenCafeBill = RestaurantBill(restaurant: chickenCafe, totalBill: 85, rat
 chickenCafeBill.calculateTip()
 
 let tacoTavern = Restaurant(name: "Taco Tavern")
-let bill1 = RestaurantBill(restaurant: tacoTavern, totalBill: 25, rating: 5)
-
-var restaurantBills = [chickenCafeBill, bill1]
-restaurantBills.count
-
-let bill2 = RestaurantBill(restaurant: tacoTavern, totalBill: 35, rating: 3)
-restaurantBills.append(bill2)
-restaurantBills.count
-
-var totalBills = 0.0
-var totalTips = 0.0
-
-for bill in restaurantBills {
-    totalBills = totalBills + bill.totalBill
-    totalTips += bill.calculateTip()
-}
-
-totalBills
-totalTips
-
+let tacoTavernBill = RestaurantBill(restaurant: tacoTavern, totalBill: 25, rating: 5)
+tacoTavernBill.calculateTip()
