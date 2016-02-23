@@ -41,3 +41,25 @@ struct RestaurantBill {
 let chickenCafe = Restaurant(name: "Chicken Café")
 let chickenCafeBill = RestaurantBill(restaurant: chickenCafe, totalBill: 85, rating: 5)
 chickenCafeBill.calculateTip()
+
+let tacoTavern = Restaurant(name: "Taco Tavern")
+let bill1 = RestaurantBill(restaurant: tacoTavern, totalBill: 25, rating: 5)
+
+var restaurantBills = [chickenCafeBill, bill1]
+restaurantBills.count
+
+let bill2 = RestaurantBill(restaurant: tacoTavern, totalBill: 35, rating: 3)
+restaurantBills.append(bill2)
+restaurantBills.count
+
+var totalBills = 0.0
+var totalTips = 0.0
+
+for bill in restaurantBills {
+    totalBills = totalBills + bill.totalBill
+    totalTips += bill.calculateTip()
+}
+
+totalBills
+totalTips
+
