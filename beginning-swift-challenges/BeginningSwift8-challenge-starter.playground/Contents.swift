@@ -71,3 +71,19 @@ Check out the challenge solution playground for one way to do it. There are diff
 */
 
 // add your code here!
+
+var totalsByRestaurant: [String: Double] = [:]
+
+for bill in restaurantBills {
+    if let currentTotal = totalsByRestaurant[bill.restaurant.name] {
+        totalsByRestaurant[bill.restaurant.name] = currentTotal + bill.totalBill + bill.calculateTip()
+    } else {
+        totalsByRestaurant[bill.restaurant.name] = bill.totalBill + bill.calculateTip()
+    }
+}
+
+for (restaurantName,totalAmount) in totalsByRestaurant {
+    print("\(restaurantName): $\(totalAmount)")
+}
+
+
